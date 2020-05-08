@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "k3s_status_lcd"
-version = "0.1.1"
+version = "0.2.0"
 description = "A small service to retrive the status of a k3s cluster on a Raspberry Pi and render on an attached LCD"
 authors = ["Mark Woolley <mw@marknet15.com>"]
 
@@ -11,6 +11,9 @@ kubernetes = "^11.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
+
+[tool.poetry.scripts]
+k3s_status_lcd = "k3s_status_lcd.status:run"
 
 [build-system]
 requires = ["poetry>=0.12"]
