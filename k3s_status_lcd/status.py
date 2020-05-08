@@ -21,6 +21,7 @@ except Exception as err:
 kube_cli = client.CoreV1Api()
 lcd = i2c_lcd.lcd()
 
+
 def get_nodes():
     nodes = kube_cli.list_node(watch=False)
     ready_nodes = 0
@@ -31,7 +32,7 @@ def get_nodes():
             if condition.type == "Ready" and condition.status == "True":
                 ready_nodes += 1
 
-    return ( ready_nodes, total_nodes)
+    return (ready_nodes, total_nodes)
 
 def get_all_pods():
     pods = kube_cli.list_pod_for_all_namespaces(timeout_seconds=10)
